@@ -1,0 +1,11 @@
+export { default as Home } from './Auth/Home';
+export { default as About } from './Auth/About';
+export { default as Login } from './Auth/Login';
+export { default as Register } from './Auth/Register';
+export { default as Dashboard } from './Auth/Dashboard';
+export { default as UserEdit } from './Auth/UserEdit';
+export { default as AddMoment } from './Auth/AddMoment';
+export { default as EditMoment } from './Auth/EditMoment';
+export { default as Follow } from './Auth/Follow';
+export { default as ResetPass } from './Auth/ResetPass';
+export { default as SingleImage } from './Auth/SingleImage';

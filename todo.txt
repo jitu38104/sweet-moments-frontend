@@ -1,0 +1,41 @@
+in-component use dependancy
+* material-UI icons + core
+* moment time decoder
+* axios (imp.)
+* react-router-dom
+
+components
+[+] register page => token store -> localstorage
+[+] login page => same here! 
+[+] user dashboard
+[+] user edit page
+[+] add new moment ///further style
+[+] moment edit page
+[+] followings list page + follwers list page ///further functionality
+[+] reset password
+
+    render components
+    [+] main moments page (all moments)
+    [+] single moment page (single moment + comment functionality)   
+    [+] user moment page (user moments)   
+
+    pending
+    [-] proper header 
+    [-] footer
+
+in-comment functionality
+[-] like 
+[-] dislike
+[-] follow
+[-] unfollow
+[-] comment
+[-] logout => removal of token from localstorage and api mongodb
+
+at last 
+[-] mobile responsive
+
+[-] yarn build
+
+[-] git final commit
+[-] push it to your repo
+[-] host it on netlify after API backend hosting(including amazon stripe node)

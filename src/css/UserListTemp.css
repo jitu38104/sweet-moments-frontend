@@ -1,0 +1,36 @@
+.userTemp {
+  width: 100%;
+  height: fit-content;
+  padding: 0.5rem 1.75rem;
+  padding-bottom: 0;
+  border-radius: 1.5rem;
+  background-color: #3a8fd9;
+  margin-bottom: 2rem;
+}
+
+.userTemp > img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  object-fit: cover;
+}
+
+.userTemp .right-container .user-info h5 {
+  margin-bottom: -0.05rem;
+}
+
+.userTemp .right-container .user-info h6 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.userTemp .right-container .user-btn h6 {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.userTemp .right-container .user-btn h6 span {
+  font-weight: 700;
+}

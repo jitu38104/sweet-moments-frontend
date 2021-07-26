@@ -1,0 +1,44 @@
+.img .img-container {
+  height: 200px;
+  width: 220px;
+  position: relative;
+}
+
+.img .img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.img .img-container img:hover {
+  transform: scale(1.05);
+  filter: blur(1.5px);
+  border-radius: 5px;
+  color: white !important;
+}
+
+.img .img-container:hover {
+  color: white;
+}
+
+.img .img-container .img-edit {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+.img .img-container .img-watch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}

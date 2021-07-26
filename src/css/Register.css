@@ -1,0 +1,31 @@
+.register .register-form {
+  width: 420px;
+  background-color: #ffff;
+  border-radius: 5px;
+  margin: 2rem auto 0 auto;
+}
+
+.register .register-form img {
+  height: 80px;
+  width: 200px;
+  object-fit: contain;
+}
+
+.register .register-form form {
+  width: 400px;
+  padding: 0 2rem 1.25rem 2rem;
+}
+
+.register .register-form form input {
+  height: 2.85rem;
+  border-radius: 0.25rem;
+}
+
+.register .register-form form input::placeholder {
+  color: #db88ad;
+  font-weight: 500;
+}
+
+.register .register-form form button {
+  padding: 0.5rem 1rem;
+}

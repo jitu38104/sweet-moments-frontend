@@ -1,0 +1,51 @@
+.edit-profile {
+  padding-top: 1rem;
+}
+
+.edit-profile .profile {
+  width: 40%;
+  padding: 3.4rem 3rem;
+}
+
+.edit-profile .profile > a img {
+  margin-top: -2rem;
+  height: 80px;
+  width: 200px;
+  object-fit: contain;
+}
+
+.edit-profile .profile .profile-img {
+  position: relative;
+}
+
+.edit-profile .profile .profile-img img {
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+  border: 5px solid #e83283;
+  border-radius: 50%;
+}
+
+.edit-profile .profile .profile-img .icon {
+  position: absolute;
+  bottom: 1rem;
+  right: 5rem;
+  color: #3a8fd9;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.edit-profile .profile form button {
+  padding: 0.45rem 1rem;
+}
+
+.edit-profile .profile form input::placeholder {
+  color: #db88ad;
+  font-weight: 500;
+}
+
+.edit-profile .profile form input {
+  height: 2.5rem;
+  border-radius: 0.25rem;
+}

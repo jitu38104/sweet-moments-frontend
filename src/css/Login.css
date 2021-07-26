@@ -1,0 +1,39 @@
+.login .login-form {
+  width: 420px;
+  background-color: #ffff;
+  border-radius: 5px;
+  margin: 2rem auto 0 auto;
+}
+
+.login .login-form img {
+  height: 80px;
+  width: 200px;
+  object-fit: contain;
+}
+
+.login .login-form form {
+  width: 400px;
+  padding: 0 2rem 1.25rem 2rem;
+}
+
+.login .login-form form input {
+  height: 2.85rem;
+  border-radius: 0.25rem;
+}
+
+.login .login-form form input::placeholder {
+  color: #db88ad;
+  font-weight: 500;
+}
+
+.login .login-form form button {
+  padding: 0.5rem 1rem;
+}
+
+.login .login-form h6 > a {
+  font-weight: 400;
+}
+
+.login .login-form h6 > a:hover {
+  color: #3a8fd9 !important;
+}

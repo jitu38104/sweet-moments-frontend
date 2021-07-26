@@ -1,0 +1,154 @@
+.profile {
+  background-color: #fff;
+  position: relative;
+  height: 100%;
+}
+
+.profile .setting-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: #528fb3;
+  cursor: pointer;
+}
+
+.profile .setting-icon:hover {
+  color: #2b82b4;
+}
+
+.profile .profile-img img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border: 5px solid #e83283;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.profile .profile-name .name-img > h1 {
+  font-weight: 600;
+  color: #212529;
+}
+
+.profile .profile-name .name-img > img {
+  height: 35px;
+  width: 35px;
+  object-fit: contain;
+}
+
+.profile .profile-name > h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: -0.75rem;
+  color: #212529;
+}
+
+.profile .profile-name > p {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.5;
+  margin-top: -0.5rem;
+  color: #212529;
+}
+
+.profile .profile-btn button {
+  padding: 0.45rem 1rem;
+}
+
+.profile .profile-about .about,
+.profile .profile-about .add {
+  font-size: 1rem;
+  font-weight: 500;
+  word-wrap: break-word;
+  line-height: 1.2rem;
+  color: #212529;
+}
+
+.profile .profile-about .add span {
+  color: #3a8fd9;
+}
+
+.profile .profile-counter .counter-moment h5 span:first-child,
+.profile .profile-counter .counter-follower h5 span:first-child,
+.profile .profile-counter .counter-following h5 span:first-child {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  color: #212529;
+}
+
+.profile .profile-counter .counter-moment h5 span:last-child,
+.profile .profile-counter .counter-follower h5 span:last-child,
+.profile .profile-counter .counter-following h5 span:last-child {
+  font-size: 1.25rem;
+  font-weight: 500;
+  opacity: 0.7;
+  color: #212529;
+}
+
+.profile .profile-counter .counter-follower h5 a span:last-child:hover,
+.profile .profile-counter .counter-following h5 a span:last-child:hover {
+  color: #3a8fd9;
+  text-decoration-color: #3a8fd9 !important;
+  opacity: 1;
+}
+
+/********************************************************/
+.dashbord {
+  margin-top: 5.78rem;
+}
+
+.dashbord .user-detail {
+  flex: 0.5;
+}
+
+.dashbord .dashbord-list {
+  background-color: #fff;
+  height: 114vh;
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.5rem 1.25rem;
+  border-left: 1px solid lightgray;
+}
+
+.dashbord .dashbord-moments {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 114vh;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  display: grid;
+  background-color: #fff;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  row-gap: 1rem;
+  columns: 1rem;
+  border-left: 1px solid lightgray;
+}
+
+.dashbord .dashbord-moments::-webkit-scrollbar,
+.dashbord .dashbord-list::-webkit-scrollbar {
+  height: 12px;
+  width: 5px;
+  background: #fff;
+}
+
+.dashbord .dashbord-moments::-webkit-scrollbar-thumb,
+.dashbord .dashbord-list::-webkit-scrollbar-thumb {
+  background: #5f5f5d;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+.dashbord .dashbord-moments::-webkit-scrollbar-corner,
+.dashbord .dashbord-list::-webkit-scrollbar-corner {
+  background: #000;
+}
+
+.dashbord .dashbord-moments div a img {
+  width: 220px;
+}

@@ -1,0 +1,72 @@
+.Card .card-info {
+  width: 40%;
+  padding: 0 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.Card .card-info .card-header {
+  border-bottom: 1px solid lightgray;
+}
+
+.Card .card-info .card-header img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  margin-left: -1.5rem;
+  object-fit: cover;
+}
+
+.Card .card-info .card-header .card-user > h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.Card .card-info .card-header .card-user > h6 {
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin-top: -10px;
+}
+
+.Card .card-info .card-desc p {
+  font-size: 1rem;
+  line-height: 22px;
+  font-weight: 400;
+  word-wrap: break-word;
+  letter-spacing: 0.4px;
+  margin: 1rem 0;
+}
+
+.Card .card-info .card-img img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.Card .card-info .card-img h5 {
+  font-weight: 500;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.Card .card-info .card-btn {
+  border-top: 1px solid lightgray;
+  padding-top: 1rem;
+}
+
+.Card .card-info .card-btn div {
+  cursor: pointer;
+}
+
+.Card .card-info .card-btn div svg {
+  transition: all 0.2s ease;
+}
+
+.liked {
+  color: #fc346f;
+}
+
+.unliked {
+  color: #6c757d;
+}
