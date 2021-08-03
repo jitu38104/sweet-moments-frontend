@@ -1,0 +1,78 @@
+.footer {
+  background-color: #343a40;
+  margin-bottom: -1rem;
+  padding: 2rem 0 1rem 0;
+}
+
+.footer .icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.footer .icons span {
+  color: black;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.footer .icons span:not(:last-child) {
+  margin-right: 0.75rem;
+}
+
+.footer .terms {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .terms p {
+  transition: all 0.3s ease;
+}
+
+.footer .terms p:hover {
+  color: #e83283;
+  cursor: pointer;
+}
+
+.footer .terms .top {
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer .terms .top p:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.footer .terms .down {
+  display: flex;
+  font-size: 0.85rem;
+  justify-content: center;
+  margin-top: -0.75rem;
+}
+
+.footer .terms .down p:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.footer .copyright {
+  text-align: center;
+}
+
+.footer .copyright p:first-child {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.footer .copyright p:last-child {
+  color: lightgrey;
+  opacity: 0.6;
+  font-size: 0.75rem;
+  letter-spacing: 0.3px;
+}

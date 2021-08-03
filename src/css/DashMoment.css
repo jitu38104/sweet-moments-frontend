@@ -42,3 +42,24 @@
 .visible {
   visibility: visible;
 }
+
+@media (max-width: 991px) {
+  .img .img-container {
+    height: 120px;
+    width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .img .img-container {
+    height: 200px;
+    width: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .img .img-container {
+    height: 250px;
+    width: 300px;
+  }
+}

@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
+.landing {
+  height: 85.8vh;
+  box-sizing: border-box;
+  background-image: url("https://i.im.ge/2021/08/03/Lp0U1.md.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  justify-content: space-between;
+}
+
+.landing .note .details {
+  width: 75%;
+  margin-top: 5rem;
+  margin-left: 4rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.landing .note .details h1 {
+  line-height: 3.75rem;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.landing .note .details p {
+  margin-top: 2rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.75px;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.landing .buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 430px;
+  width: 800px;
+  margin-right: 3rem;
+  margin-top: 3rem;
+}
+
+.landing .buttons img {
+  height: 150px;
+  width: 300px;
+  object-fit: contain;
+  margin-bottom: 3rem;
+}
+
+.landing .buttons button {
+  width: 70%;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.landing .buttons button:hover {
+  color: #000;
+}
+
+/***********************************************/
+
+@media (max-width: 991px) {
+  .landing {
+    height: 120vh;
+  }
+
+  .landing .note .details h1 {
+    line-height: 3rem;
+    font-size: 2.25rem;
+    font-weight: 600;
+  }
+
+  .landing .note .details p {
+    font-size: 15.2px;
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 767px) {
+  .landing .note .details {
+    margin-top: 3rem;
+  }
+
+  .landing .note .details h1 {
+    font-size: 1.75rem;
+    font-weight: 400;
+  }
+
+  .landing .buttons {
+    width: 700px;
+    height: 330px;
+  }
+
+  .landing .note .details p {
+    font-size: 0.72rem;
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 576px) {
+  .landing {
+    height: 120vh;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .landing .note {
+    width: 90%;
+  }
+
+  .landing .note .details {
+    width: 100%;
+    margin: 0;
+    margin-top: 2rem;
+  }
+
+  .landing .note .details h1 {
+    font-size: 1.85rem;
+    font-weight: 300;
+  }
+
+  .landing .note .details p {
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .landing .buttons {
+    margin: 0;
+    height: fit-content;
+    width: 90%;
+    border-radius: 0;
+    margin-top: 4rem;
+    padding: 2rem 0;
+  }
+
+  .landing .buttons img {
+    display: none;
+  }
+
+  .landing .buttons button:last-child {
+    margin: 0;
+  }
+}

@@ -34,3 +34,64 @@
 .userTemp .right-container .user-btn h6 span {
   font-weight: 700;
 }
+
+/*************************************************/
+/********************feedback*********************/
+
+.feedback {
+  position: relative;
+  height: 100vh;
+}
+
+.feedback .feeback-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 50%;
+  background-color: #fff;
+  color: lightgreen;
+  text-align: center;
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  transform: translate(-50% -50%);
+  border: 10px solid lightgreen;
+  border-radius: 15px;
+}
+
+.feedback .feeback-container .back-link {
+  margin-top: 1.5rem;
+}
+
+.feedback .feeback-container .back-link p {
+  color: blue;
+}
+
+/***********************************************************/
+
+@media (max-width: 767px) {
+  .userTemp {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .userTemp {
+    padding-bottom: 0.5rem;
+    border-radius: 10px;
+  }
+
+  .userTemp > img {
+    height: 50px;
+    width: 50px;
+  }
+  .userTemp .right-container .user-info h5,
+  .userTemp .right-container .user-info h6 {
+    font-weight: 400;
+  }
+
+  .userTemp .right-container .user-btn {
+    display: none !important;
+  }
+}

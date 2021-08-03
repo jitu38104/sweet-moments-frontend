@@ -5,11 +5,11 @@ in-component use dependancy
 * react-router-dom
 
 components
-[+] register page => token store -> localstorage
-[+] login page => same here! 
+[+] register page
+[+] login page
 [+] user dashboard
 [+] user edit page
-[+] add new moment ///further style
+[+] add new moment 
 [+] moment edit page
 [+] followings list page + follwers list page ///further functionality
 [+] reset password
@@ -20,21 +20,31 @@ components
     [+] user moment page (user moments)   
 
     pending
-    [-] proper header 
-    [-] footer
+    [+] 404 page not found!
+    [+] forgot password (smtp email service)
+    [+] landing page
+    [+] search user
+    [+] restric routes for unauthorised users (redirect to 404)
+    [+] proper header + search bar(via email)
+    [+] footer
+    [+] feedback page(moment-del)
+    [+] admin user delete section
 
 in-comment functionality
-[-] like 
-[-] dislike
-[-] follow
-[-] unfollow
-[-] comment
-[-] logout => removal of token from localstorage and api mongodb
+[+] like 
+[+] dislike
+[+] follow
+[+] unfollow
+[+] comment
+[+] logout
+[+] share
 
 at last 
-[-] mobile responsive
+[+] mobile responsive
 
-[-] yarn build
+[+] titling to each element
+
+[-] yarn build (not before backend hosting)
 
 [-] git final commit
 [-] push it to your repo

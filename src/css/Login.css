@@ -36,4 +36,30 @@
 
 .login .login-form h6 > a:hover {
   color: #3a8fd9 !important;
+  text-decoration: underline !important;
+}
+
+/***************************************************/
+@media (max-width: 576px) {
+  .login .login-form {
+    width: 300px;
+  }
+
+  .login .login-form form {
+    width: 300px;
+    padding: 0 2rem 1.25rem 2rem;
+  }
+
+  .login .login-form form label {
+    display: none;
+  }
+
+  .login .login-form form input {
+    margin-top: 1.8rem;
+  }
+
+  .success-message {
+    right: 0;
+    top: 0;
+  }
 }

@@ -1,17 +1,40 @@
 import '../../css/Login.css';
-import { useState } from 'react';
+import axios from '../../config/axios';
+import { useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const Login = () => {
-    const [pass1, setPass1] = useState('');
+    const history = useHistory();
     const [pass2, setPass2] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isDisplay, setIsDisplay] = useState(false);    
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const userEmail = params.get('email');
+        setEmail(userEmail);
+    }, []);
 
     const submitHandle = (e) => {
         e.preventDefault();
-        console.log({pass1, pass2});
+        const body = {password, email}; 
+        
+        axios.post('/user/password/reset', body).then(res => {
+            if(res.data?.flag){
+                setIsDisplay(true);
+                setTimeout(() => {
+                    history.push('/login');
+                }, 2000);
+            }
+        }).catch(err => console.error(err));
     }
 
     return (
-        <div className="login">            
+        <div className="login position-relative">   
+            <div className={isDisplay ? "success-message" : "d-none"} style={{top: '-5rem'}}>
+                <p>updated sucessfully</p>
+            </div>         
             <div className="login-form d-flex flex-column justify-content-center mt-5">                               
                 <h4 className="text-primary text-center mt-3">Reset Password</h4>
                 <form className="m-auto" onSubmit={(e) => submitHandle(e)}>              
@@ -22,8 +45,8 @@ const Login = () => {
                             className="form-control border border-primary text-primary"                             id="mail"
                             name="pass1" 
                             placeholder="Enter password" 
-                            value={pass1}
-                            onChange={(e) => setPass1(e.target.value)}    
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}    
                         />
                     </div>
 

@@ -1,17 +1,49 @@
 import '../../css/Login.css';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import axios from '../../config/axios';
+import { useState, useContext } from 'react';
+import { userContext } from '../../userContex';
+import { Link, useHistory } from 'react-router-dom';
+import { addToken } from '../../services/localStore';
 
 const Login = () => {
+    const history = useHistory();
+    const { setIsLogged } = useContext(userContext);
     const [email, setEmail] = useState('');
+    const [isDisplay, setIsDisplay] = useState(false);
+    const [login, setLogin] = useState(false);
     const [password, setPassword] = useState('');
 
     const submitHandle = (e) => {
-        e.preventDefault();
-        console.log({email, password});
+        e.preventDefault();        
+        
+        axios.post('/user/login', {
+            email: email, 
+            password: password
+        }).then(res => {
+            addToken(res.data?.access_token);
+            setLogin(true);
+            setIsLogged(true);
+            setTimeout(() => {
+                history.push('/');
+            }, 1000);            
+        }).catch(err => {
+            setIsDisplay(true);
+            setTimeout(() => {
+                setIsDisplay(false);
+            }, 3000);
+            console.log(err);
+        });
     }
 
     return (
+        <>
+        <div 
+            className={isDisplay || login ? "success-message" : "d-none"} 
+            style={{ backgroundColor: login ? '#4BB543' : '#ff0f0f' }}
+        >
+            <p>{login ? 'Login successfully!' : 'Either Username or Password is wrong!'}</p>
+        </div>
+        
         <div className="login">
             <div className="login-form d-flex flex-column justify-content-center">
                 <Link to="/" className="m-auto">
@@ -48,10 +80,16 @@ const Login = () => {
                 </form>
 
                 <h6 className="text-center mb-3 mt-1">
-                    <Link className="fgpss text-primary text-decoration-none" to="/register">Forget password?</Link>
+                    <Link 
+                        className="fgpss text-primary text-decoration-none" 
+                        to="/account/password/reset/request"
+                    >
+                        Forget password?
+                    </Link>
                 </h6>
             </div> 
         </div>
+        </>
     )
 }
 

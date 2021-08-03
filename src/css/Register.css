@@ -29,3 +29,27 @@
 .register .register-form form button {
   padding: 0.5rem 1rem;
 }
+
+/***************************************************/
+@media (max-width: 576px) {
+  .register .register-form {
+    width: 300px;
+    padding-bottom: 1rem;
+  }
+
+  .register .register-form form {
+    width: 300px;
+  }
+
+  .register .register-form label {
+    display: none;
+  }
+
+  .register .register-form input {
+    margin-top: 2rem;
+  }
+
+  .register .register-form input.last {
+    margin-bottom: 0.5rem;
+  }
+}

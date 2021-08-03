@@ -1,31 +1,58 @@
-import { useState, useEffect } from 'react';
 import '../../css/Register.css';
-import { Link } from 'react-router-dom';
+import axios from '../../config/axios';
+import { userContext } from '../../userContex';
+import { Link, useHistory } from 'react-router-dom';
+import { addToken } from '../../services/localStore';
+import { useState, useEffect, useContext } from 'react';
 
-// is-valid is-invalid
 const Register = () => {
+    const history = useHistory();
+    const { setIsLogged } = useContext(userContext);
+    const [allEmail, setAllEmail] = useState([]);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [rPass, setRpass] = useState("");
     const [emailClass, setEmailClass] = useState("");
-    const [passClass, setPassClass] = useState("");
+    const [passClass, setPassClass] = useState("");    
 
     const submitHandle = (e) => {
         e.preventDefault();
-        console.log({name, email, password, rPass})
+
+        axios.post('/user/register', {
+            name: name,
+            email: email,
+            password: password,
+            repeat_password: rPass
+        }).then(res => {
+            setIsLogged(true);
+            addToken(res.data?.access_token);
+            history.push('/register/feeback');
+        }).catch(err => {
+            console.log(err.response.data);
+        });        
     }
 
     useEffect(() => {
-        const mail = "jk38104@gmail.com";                
+        axios.get('/user/all/register').then(res => {
+            console.log(res.data)
+            setAllEmail(res.data);
+        }).catch(err => {
+            console.log(err.response.data);
+        })
+    },[]);
 
-        console.log(email)
+    useEffect(() => {
+        const foundMail = allEmail.filter(userMail => {
+            return email === userMail;
+        });                
+
         if(email.includes('.com')) {
-            email === mail ? setEmailClass('is-invalid') : setEmailClass('is-valid'); 
+            email === foundMail[0] ? setEmailClass('is-invalid') : setEmailClass('is-valid'); 
         } else {
             setEmailClass('')
         }
-    }, [email]);
+    }, [email, allEmail]);
     
                 
     
@@ -93,7 +120,7 @@ const Register = () => {
                         <label className="form-label mt-2 text-primary">Repeat Password</label>
                         <input
                             type="password" 
-                            className={`form-control border border-primary text-primary ${passClass}`} 
+                            className={`form-control border border-primary text-primary ${passClass} last`} 
                             id="pass2"
                             name="repeat_password" 
                             placeholder="Enter repeat password" 

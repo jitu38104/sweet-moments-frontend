@@ -1,8 +1,16 @@
+.Card {
+  margin: 2rem 0;
+}
+
 .Card .card-info {
-  width: 40%;
+  width: 50%;
   padding: 0 1rem;
   padding-top: 0.5rem;
   padding-bottom: 1rem;
+}
+
+.Card .card-info > a {
+  text-decoration: none;
 }
 
 .Card .card-info .card-header {
@@ -38,13 +46,17 @@
   margin: 1rem 0;
 }
 
-.Card .card-info .card-img img {
+.Card .card-info .card-img a {
+  text-decoration: none;
+}
+
+.Card .card-info .card-img a img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
 
-.Card .card-info .card-img h5 {
+.Card .card-info .card-img a h5 {
   font-weight: 500;
   margin-top: 1.2rem;
   margin-bottom: 0.5rem;
@@ -69,4 +81,40 @@
 
 .unliked {
   color: #6c757d;
+}
+
+/************************************************/
+@media (max-width: 991px) {
+  .Card .card-info {
+    width: 70%;
+  }
+
+  .Card .card-info .card-desc p {
+    font-size: 0.9rem;
+    line-height: 20px;
+  }
+
+  .Card .card-info .card-header img {
+    height: 60px;
+    width: 60px;
+    margin-right: 1.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .Card .card-info {
+    width: 85%;
+  }
+}
+
+@media (max-width: 576px) {
+  .Card .card-info {
+    width: 95%;
+    padding-top: 0.2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .Card .card-info .card-img a img {
+    height: 10rem;
+  }
 }

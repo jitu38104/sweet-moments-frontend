@@ -1,4 +1,7 @@
 .profile {
+  display: flex;
+  padding-left: 2rem;
+  flex-direction: column;
   background-color: #fff;
   position: relative;
   height: 100%;
@@ -17,6 +20,7 @@
 }
 
 .profile .profile-img img {
+  position: relative;
   height: 150px;
   width: 150px;
   object-fit: cover;
@@ -86,6 +90,7 @@
   color: #212529;
 }
 
+.profile .profile-counter .counter-moment h5 a span:last-child:hover,
 .profile .profile-counter .counter-follower h5 a span:last-child:hover,
 .profile .profile-counter .counter-following h5 a span:last-child:hover {
   color: #3a8fd9;
@@ -94,10 +99,6 @@
 }
 
 /********************************************************/
-.dashbord {
-  margin-top: 5.78rem;
-}
-
 .dashbord .user-detail {
   flex: 0.5;
 }
@@ -151,4 +152,139 @@
 
 .dashbord .dashbord-moments div a img {
   width: 220px;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.faded {
+  background-color: #6610f2;
+  border-color: #6610f2;
+}
+
+@media (max-width: 991px) {
+  .dashbord .dashbord-moments {
+    padding: 0 5px;
+    row-gap: 10px;
+    columns: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashbord {
+    flex-direction: column;
+  }
+
+  .profile {
+    padding: 0;
+  }
+
+  .profile .img-btns {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile .setting-icon {
+    display: none;
+  }
+  .profile .other-link {
+    display: block !important;
+  }
+  .profile .other-link .setting-icon2 {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: #528fb3;
+    cursor: pointer;
+  }
+
+  .profile .img-btns .name-btns {
+    margin-left: 3rem;
+    margin-top: -1.3rem;
+  }
+
+  .profile .about-links {
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .profile .about-links .profile-about {
+    width: fit-content;
+    margin: auto;
+  }
+
+  .profile .about-links .profile-counter {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .dashbord .dashbord-moments {
+    height: fit-content;
+    padding: 20px 10px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+    columns: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile .img-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile .img-btns .name-btns {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .profile .img-btns .name-btns .profile-name .name-img {
+    justify-content: center;
+  }
+
+  .profile .img-btns .profile-img {
+    margin-bottom: 2.5rem;
+  }
+  .profile .profile-img img {
+    height: 180px;
+    width: 180px;
+  }
+
+  .profile .profile-name .name-img > h1 {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  .profile .about-links .profile-about p:last-child {
+    display: none;
+  }
+
+  .profile .about-links .profile-about p.about {
+    padding-left: 10px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 22px;
+  }
+
+  .profile .about-links .profile-counter h5 span {
+    font-size: 17px !important;
+  }
+
+  .dashbord {
+    margin-top: 2.3rem;
+  }
+
+  .dashbord .dashbord-moments {
+    height: fit-content;
+    padding: 20px 10px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+    columns: 0;
+  }
 }

@@ -1,9 +1,10 @@
 .edit-profile {
   padding-top: 1rem;
+  position: relative;
 }
 
 .edit-profile .profile {
-  width: 40%;
+  width: 50%;
   padding: 3.4rem 3rem;
 }
 
@@ -21,7 +22,7 @@
 .edit-profile .profile .profile-img img {
   height: 150px;
   width: 150px;
-  object-fit: contain;
+  object-fit: cover;
   border: 5px solid #e83283;
   border-radius: 50%;
 }
@@ -45,7 +46,38 @@
   font-weight: 500;
 }
 
-.edit-profile .profile form input {
+.edit-profile .profile form select {
+  color: #e83283;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.edit-profile .profile form input,
+.edit-profile .profile form select {
   height: 2.5rem;
   border-radius: 0.25rem;
+}
+
+/****************************************************************/
+@media (max-width: 991px) {
+  .edit-profile .profile {
+    width: 60%;
+  }
+}
+
+@media (max-width: 767px) {
+  .edit-profile .profile {
+    width: 75%;
+  }
+}
+
+@media (max-width: 767px) {
+  .edit-profile .profile {
+    width: 95%;
+    margin-top: -0.5rem !important;
+  }
+
+  .edit-profile .profile .profile-img .icon {
+    right: 1rem;
+  }
 }

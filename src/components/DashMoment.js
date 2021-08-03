@@ -1,18 +1,43 @@
-import { useState } from 'react';
 import '../css/DashMoment.css';
+import axios from '../config/axios';
 import { Link } from 'react-router-dom';
+import { userContext } from '../userContex';
+import { useState, useContext } from 'react';
 import EditIcon from '@material-ui/icons/Edit';
+import { getToken } from '../services/localStore';
 import DeleteIcon from '@material-ui/icons/Delete';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
-const DashMoment = () => {
-    const [visiblity, setVisiblity] = useState(false)
+const DashMoment = ({ data, userId, flags }) => {
+    const { setUser, user } = useContext(userContext);
+    const [visiblity, setVisiblity] = useState(false);
 
     const hoverHandle = (flag) => {
         flag ? setVisiblity(true) : setVisiblity(false);
     }
 
-
+    const deleteHandler = () => {
+        const url = `/moment/delete/${data._id}`;
+        
+        getToken().then(token => {
+            axios.delete(url, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(res => {
+                console.log(res.data);
+                axios.get('/user/me', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }).then(result => {
+                    flags.setFlag(flags.flag + 1);
+                    setUser(result.data);
+                }).catch(err => console.error(err.response.data));
+            }).catch(err => console.error(err.response.data));
+        }).catch(err => console.error(err));        
+    }
+    
     return (
         <div className="img">
             
@@ -22,29 +47,34 @@ const DashMoment = () => {
                     onMouseLeave={() => {hoverHandle(0)}}
                 >
                     <img
-                        src="https://i.pinimg.com/originals/7e/24/8c/7e248c8782c1fb4963dc62c3c074d4b4.jpg"
+                        src={ data?.image_path }
                         alt="moment-img"
                     />
-                    <div 
-                        className={`img-edit d-flex ${visiblity ? "visible" : "invisible"}`} 
-                        id="imgEditBox"
-                    >
-                        <Link to="/edit-moment">
-                            <EditIcon className="me-1" titleAccess="edit image" />
-                        </Link>
-                        
-                        <Link to="#">
-                            <DeleteIcon titleAccess="delete image" />
-                        </Link>
-                    </div>
-                    <Link to="/single">
+                    {
+                        user._id === userId
+                        ?
+                            <div 
+                                className={ `img-edit d-flex ${ visiblity ? "visible" : "invisible" }` } 
+                                id="imgEditBox"
+                            >
+                                <Link to={`/${userId}/dashboard/moment/edit?id=${ data._id }`}>
+                                    <EditIcon className="me-1" titleAccess="edit image" />
+                                </Link>
+                                
+                                <Link to="#" onClick={ deleteHandler }>
+                                    <DeleteIcon titleAccess="delete image" />
+                                </Link>
+                            </div>                           
+                        :   null
+                    }  
+                     <Link to={ `/${userId}/dashboard/moment?id=${ data._id }` }>
                         <div 
-                            className={`img-watch ${visiblity ? "visible" : "invisible"}`} 
+                            className={ `img-watch ${ visiblity ? "visible" : "invisible" }` } 
                             id="visualIcon"
                         >
                             <VisibilityIcon titleAccess="see image" />
                         </div>
-                    </Link>                                       
+                    </Link>                                                         
                 </div>            
         </div>
     )
