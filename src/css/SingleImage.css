@@ -89,6 +89,8 @@
 
 .moment .post .right-container {
   overflow-y: auto;
+  word-break: break-all;
+  overflow-x: hidden;
 }
 
 .moment .post .right-container .post-title h4 {

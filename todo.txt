@@ -44,8 +44,8 @@ at last
 
 [+] titling to each element
 
-[-] yarn build (not before backend hosting)
+[+] yarn build (not before backend hosting)
 
-[-] git final commit
-[-] push it to your repo
-[-] host it on netlify after API backend hosting(including amazon stripe node)
+[+] git final commit
+[+] push it to your repo
+[+] host it on netlify after API backend hosting(including amazon stripe node)
