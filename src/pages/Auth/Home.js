@@ -61,6 +61,7 @@ const Home = () => {
                 momentArr.map((moment, index) => {
                 const imgPath = moment.image_path;
                 const splitedPath = imgPath.split('/')[4];
+                //const splitedPath = imgPath.split('\\')[1];
                 return (
                     <Card 
                       key={index} 

@@ -155,7 +155,8 @@ const Header = () => {
                                             isLogged 
                                                 ? 
                                                     <img 
-                                                        src={`https://sweet-moments-app.herokuapp.com/${user.image_path}`}
+                                                        src={`https://damp-beyond-66324.herokuapp.com/${user.image_path}`}
+                                                        //src={`http://localhost:5000/${user.image_path}`}
                                                         title={user.email}
                                                         style={{
                                                             height: '50px',

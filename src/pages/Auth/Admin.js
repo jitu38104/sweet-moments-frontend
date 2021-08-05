@@ -74,7 +74,8 @@ const Admin = () => {
                                 return <div className="user" key={user?._id}>
                                             <div className="user-img">
                                                 <img 
-                                                    src={ "https://sweet-moments-app.herokuapp.com/"+user.image_path }
+                                                    src={ "https://damp-beyond-66324.herokuapp.com/"+user.image_path }
+                                                    //src={ "http://localhost:5000/"+user.image_path }
                                                     alt="user-img"
                                                 />
                                             </div>

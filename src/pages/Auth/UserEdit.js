@@ -14,7 +14,8 @@ const Profile = () => {
     const [isDisplay, setIsDisplay] = useState(false);
     const [name, setName] = useState(user?.name);
     const [about, setAbout] = useState(user?.about);
-    const [image, setImage] = useState(`https://sweet-moments-app.herokuapp.com/${user?.image_path}`);
+    const [image, setImage] = useState(`https://damp-beyond-66324.herokuapp.com/${user?.image_path}`);
+    //const [image, setImage] = useState(`http://localhost:5000/${user?.image_path}`);
     const [profession, setProfession] = useState(user?.profession || '');
 
     const submitHandle = (e) => {

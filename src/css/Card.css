@@ -114,7 +114,19 @@
     padding-bottom: 0.5rem;
   }
 
+  .Card .card-info a .card-header .card-user h6 {
+    font-size: 0.7rem;
+  }
+
   .Card .card-info .card-img a img {
     height: 10rem;
+  }
+
+  .Card .card-info .card-img a h5 {
+    font-size: 1rem;
+  }
+
+  .Card .card-info .card-desc p {
+    font-size: 0.65rem;
   }
 }
