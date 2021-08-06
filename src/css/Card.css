@@ -128,5 +128,6 @@
 
   .Card .card-info .card-desc p {
     font-size: 0.65rem;
+    line-height: 1rem;
   }
 }

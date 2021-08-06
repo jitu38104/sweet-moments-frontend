@@ -13,9 +13,8 @@ const Profile = () => {
     const { user, setUser } = useContext(userContext);
     const [isDisplay, setIsDisplay] = useState(false);
     const [name, setName] = useState(user?.name);
-    const [about, setAbout] = useState(user?.about);
-    const [image, setImage] = useState(`https://damp-beyond-66324.herokuapp.com/${user?.image_path}`);
-    //const [image, setImage] = useState(`http://localhost:5000/${user?.image_path}`);
+    const [about, setAbout] = useState(user?.about);    
+    const [image, setImage] = useState(user?.image_path);
     const [profession, setProfession] = useState(user?.profession || '');
 
     const submitHandle = (e) => {
@@ -26,19 +25,23 @@ const Profile = () => {
         let isPicSelected = false;
 
         if(fileInp.files && fileInp.files[0]){
-            formData.append('uploadPic', fileInp.files[0]);
+            formData.append('file', fileInp.files[0]);
+            formData.append('upload_preset', 'sweet-moments');
+            formData.append('cloud_name', 'jituboss38104');
             isPicSelected = true;
         }        
 
         getToken().then(token => {
             if(isPicSelected) {
-                axios.post('/user/upload/img', formData, {
-                    headers: {
-                    'Content-Type': 'multipart/form-data',
-                    Authorization: `Bearer ${token}`
-                    }
-                }).then(res => {
+                const url = 'https://api.cloudinary.com/v1_1/jituboss38104/image/upload';
+                
+                axios.post(url, formData).then(res => {                
                     console.log(res.data);
+                    body['img_path'] = res.data?.secure_url;
+                    body['img_id'] = res.data?.public_id;
+
+                    console.log(body);
+                    
                     axios.post('/user/edit/info', body, {
                         headers: {
                         Authorization: `Bearer ${token}`
@@ -93,9 +96,9 @@ const Profile = () => {
     }
     return (
         <div className="edit-profile">
-        <div className={isDisplay ? "success-message" : "d-none"}>
-            <p>updated sucessfully</p>
-        </div>
+            <div className={isDisplay ? "success-message" : "d-none"}>
+                <p>updated sucessfully</p>
+            </div>
             <div className="profile d-flex flex-column m-auto">
                 <Link to={`/${user._id}/dashboard`} className="m-auto">
                     <img className="mb-3" src="/logo.png" alt="logo" />
@@ -115,7 +118,7 @@ const Profile = () => {
                         id="editPen" 
                         titleAccess="upload profile image"
                         onClick={fileOpenHandler}                        
-                    />
+                    />                    
                 </div>
                 <input 
                     type="file" 

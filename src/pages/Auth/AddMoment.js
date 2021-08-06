@@ -14,22 +14,29 @@ const AddMoment = () => {
 
         if(file) {
             const formData = new FormData();
+            const body = { title, desc };
 
-            formData.append('uploadPic', file);
-            formData.append('title', title);
-            formData.append('desc', desc);
+            formData.append('file', file);
+            formData.append('upload_preset', 'sweet-moments');
+            formData.append('cloud_name', 'jituboss38104');
 
             getToken().then(token => {
-                axios.post('/moment/upload/img', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                        Authorization: `Bearer ${token}`
-                        }
-                }).then(res => {
-                    console.log(res.data);
-                    history.push('/');
-                }).catch(err => console.log(err));
-            }).catch(err => console.log(err));            
+                const url = 'https://api.cloudinary.com/v1_1/jituboss38104/image/upload';
+                axios.post(url, formData).then(res => {
+                    console.log(res.data?.secure_url);
+                    body['img_path'] = res.data?.secure_url;
+                    body['img_id'] = res.data?.public_id;
+
+                    axios.post('/moment/upload/img', body, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                            }
+                    }).then(res => {
+                        console.log(res.data);
+                        history.push('/');
+                    }).catch(err => console.error(err));
+                }).catch(err => console.error(err));                
+            }).catch(err => console.error(err));            
         } else {
             console.log("Image should be selected.")
             const html = `<p className="mb-0">Image field should be empty.</p>

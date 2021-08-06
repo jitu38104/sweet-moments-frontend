@@ -88,6 +88,7 @@
 
   .about .about-data > p.about-detail {
     font-size: 0.75rem !important;
+    line-height: 1.2rem !important;
   }
 
   .upward {
@@ -189,7 +190,7 @@
 
   div.hidden-nav-bar .links a {
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 1rem;
     margin-bottom: 0.75rem;
     transition: all 0.3s ease;
     width: fit-content;

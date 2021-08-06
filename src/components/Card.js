@@ -8,14 +8,14 @@ import ShareRoundedIcon from '@material-ui/icons/ShareRounded';
 import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
 import ChatBubbleRoundedIcon from '@material-ui/icons/ChatBubbleRounded';
 
-const Card = ({ data, userId, setExit, setInfo }) => {
+const Card = ({ data, setExit, setInfo }) => {
     const { user, setUser } = useContext(userContext);
     const [likeCount, setLikeCount] = useState(data.meta.likes);
     const [isLike, setIsLike] = useState(false);
     const [userData, setUserData] = useState({});  
 
     useEffect(() => {
-        axios.get(`/user/lite/me/${userId}`).then(res => {
+        axios.get(`/user/lite/me/${data?.user_id}`).then(res => {
             setUserData(res.data);
         }).catch(err => {
             console.log(err.response.data);
@@ -25,7 +25,7 @@ const Card = ({ data, userId, setExit, setInfo }) => {
         const flag = likedArr.some(item => item === data._id);
         setIsLike(flag);       
         
-    },[userId, user, data]);
+    },[user, data]);
     
 
     const userRefreshControl = () => {
@@ -42,7 +42,7 @@ const Card = ({ data, userId, setExit, setInfo }) => {
 
 
     const likeHandler = () => {
-        const url = `moment/like/${userId}/${data._id}`;
+        const url = `moment/like/${data?.user_id}/${data?._id}`;
 
         getToken().then(token => {
             axios.get(url, {                
@@ -61,7 +61,7 @@ const Card = ({ data, userId, setExit, setInfo }) => {
     }
 
     const dislikeHandler = () => {
-        const url = `moment/dislike/${userId}/${data._id}`;
+        const url = `moment/dislike/${data?.user_id}/${data._id}`;
 
         getToken().then(token => {
             axios.get(url, {                
@@ -91,7 +91,7 @@ const Card = ({ data, userId, setExit, setInfo }) => {
     return (
         <div className="Card container mt-2">
             <div className="card-info card m-auto">
-                <Link to={`/${userId}/dashboard`}>
+                <Link to={`/${data?.user_id}/dashboard`}>
                     <div className="card-header d-flex align-items-center">
                         <img 
                             src={ userData?.img_path }
@@ -110,7 +110,7 @@ const Card = ({ data, userId, setExit, setInfo }) => {
                     </p>
                 </div>
                 <div className="card-img">
-                    <Link to={`/${userId}/dashboard/moment?id=${data._id}`}>
+                    <Link to={`/${data?.user_id}/dashboard/moment?id=${data._id}`}>
                         <img 
                             src={ data.image_path }
                             alt="moment-img" 
@@ -124,7 +124,7 @@ const Card = ({ data, userId, setExit, setInfo }) => {
                         <span> { likeCount }</span>
                     </div>
                     <div>
-                        <Link to={`/${userId}/dashboard/moment?id=${data._id}`}>
+                        <Link to={`/${data?.user_id}/dashboard/moment?id=${data._id}`}>
                             <ChatBubbleRoundedIcon titleAccess="Comment" />
                         </Link>                        
                     </div>

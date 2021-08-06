@@ -229,9 +229,8 @@ const SingleImage = () => {
            
             <div className="post-comment">
                 <div className="comment-input d-flex align-items-center">
-                    <img
-                        src={ `https://damp-beyond-66324.herokuapp.com/${user?.image_path}` }
-                        //src={ `http://localhost:5000/${user?.image_path}` }
+                    <img                        
+                        src={ user?.image_path }
                         alt="user-img"
                     />     
                     <input 

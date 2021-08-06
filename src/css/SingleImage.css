@@ -89,7 +89,7 @@
 
 .moment .post .right-container {
   overflow-y: auto;
-  word-break: break-all;
+  word-wrap: break-word;
   overflow-x: hidden;
 }
 
@@ -238,6 +238,7 @@
   .moment .post .right-container .post-detail p {
     font-size: 0.75rem;
     font-weight: 400;
+    line-height: 1.15rem;
   }
 
   .moment .post-comment .comment-input img {

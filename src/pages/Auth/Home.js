@@ -15,11 +15,11 @@ const Home = () => {
 
   useEffect(() => {
     axios.get('moment/all/moments').then(res => {
+      console.log(res.data);
       setMomentArr(res.data);
     }).catch(err => {
       console.log(err);
     });
-
   }, []);
 
   useEffect(() => {
@@ -59,14 +59,10 @@ const Home = () => {
           <div className="home-container">
             {
                 momentArr.map((moment, index) => {
-                const imgPath = moment.image_path;
-                const splitedPath = imgPath.split('/')[4];
-                //const splitedPath = imgPath.split('\\')[1];
                 return (
                     <Card 
                       key={index} 
-                      data={moment} 
-                      userId={splitedPath} 
+                      data={moment}
                       setExit={setClose} 
                       setInfo={setShareInfo}
                     />
