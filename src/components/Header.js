@@ -62,7 +62,12 @@ const Header = () => {
                     isLogged
                     ?
                     <>
-                        <Link to={`/${user._id}/${user.name}/admin`} onClick={directionHandler}>Admin</Link>
+                        {
+                            user?.role === 'admin'
+                            ?
+                                <Link to={`/${user._id}/${user.name}/admin`} onClick={directionHandler}>Admin</Link>
+                            : null
+                        }                        
                         <Link to={`/${user._id}/dashboard`} onClick={directionHandler}>Dashboard</Link>
                         <Link to={`/${user._id}/moment/add`} onClick={directionHandler}>Post Image</Link>
                         <Link to='#' onClick={userLogout}>Logout</Link>
