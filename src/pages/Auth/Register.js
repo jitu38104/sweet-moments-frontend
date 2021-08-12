@@ -13,12 +13,13 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [rPass, setRpass] = useState("");
+    const [isClicked, setIsClicked] = useState(false);
     const [emailClass, setEmailClass] = useState("");
     const [passClass, setPassClass] = useState("");    
 
     const submitHandle = (e) => {
         e.preventDefault();
-
+        setIsClicked(true);
         axios.post('/user/register', {
             name: name,
             email: email,
@@ -26,6 +27,7 @@ const Register = () => {
             repeat_password: rPass
         }).then(res => {
             setIsLogged(true);
+            setIsClicked(false);
             addToken(res.data?.access_token);
             history.push('/register/feeback');
         }).catch(err => {
@@ -130,7 +132,9 @@ const Register = () => {
                         <div className="valid-feedback">passwords matched.</div>
                         <div className="invalid-feedback">passwords mismatch.</div>
                     </div>                   
-                        <button type="submit" className="btn btn-primary mt-2">Register</button>                    
+                        <button type="submit" className="btn btn-primary mt-2">
+                            {isClicked ? "Processing..." : "Register"}
+                        </button>                    
                 </form>
             </div>            
         </div>
